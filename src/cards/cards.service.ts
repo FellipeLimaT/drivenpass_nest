@@ -9,6 +9,7 @@ import { CreateCardDto } from './dto/create-card.dto';
 import { CardsRepository } from './cards.repository';
 import { User } from '@prisma/client';
 import Cryptr from 'cryptr';
+import { CreateCardTypeDto } from './dto/create-card-types';
 
 @Injectable()
 export class CardsService {
@@ -72,5 +73,13 @@ export class CardsService {
     async removeCard(id: number, user: User) {
         await this.getCard(id, user);
         return await this.cardsRepository.removeCard(id, user.id);
+    }
+
+    async removeUserCards(userId: number) {
+        return await this.cardsRepository.removeUserCards(userId);
+    }
+
+    async createCardTypes(body: CreateCardTypeDto) {
+        return await this.cardsRepository.createCardTypes(body);
     }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { CreateCardTypeDto } from './dto/create-card-types';
 
 @Injectable()
 export class CardsRepository {
@@ -39,5 +40,13 @@ export class CardsRepository {
 
     removeCard(id: number, userId: number) {
         return this.prisma.card.delete({ where: { id, userId } });
+    }
+
+    removeUserCards(userId: number) {
+        return this.prisma.card.deleteMany({ where: { userId } });
+    }
+
+    createCardTypes(data: CreateCardTypeDto) {
+        return this.prisma.cardType.create({ data });
     }
 }

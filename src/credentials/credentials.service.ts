@@ -23,7 +23,7 @@ export class CredentialsService {
             body.title,
         );
         if (title) throw new ConflictException('This title already exists.');
-        
+
         const cryptr = new Cryptr(process.env.CRYPTR_SECRET);
         const credentialsPass = cryptr.encrypt(body.credentialsPass);
         const newBody = { ...body, credentialsPass };
@@ -65,5 +65,9 @@ export class CredentialsService {
     async removeCredential(id: number, user: User) {
         await this.getOneCredential(user, id);
         return await this.credentialsRepository.removeCredential(id, user.id);
+    }
+
+    async removeUserCredentials(userId: number) {
+        return await this.credentialsRepository.removeUserCredentials(userId);
     }
 }
