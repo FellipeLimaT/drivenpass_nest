@@ -2,7 +2,9 @@
 
 DrivenPass é um aplicativo de gerenciamento de dados confidenciais projetado para fornecer funcionalidades de criar, acessar e excluir informações de contas de usuários, credenciais, notas seguras e cartões. O projeto visa garantir a segurança dos dados e a privacidade dos usuários.
 
-## Main Project Technologies:
+<hr/>
+
+## Tecnologias:
 
 ![Static Badge](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)\
 ![Static Badge](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
@@ -19,3 +21,66 @@ DrivenPass é um aplicativo de gerenciamento de dados confidenciais projetado pa
 - **Automated Testing**:\
   ![Static Badge](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)\
   ![Static Badge](https://img.shields.io/badge/Supertest-5849be?style=for-the-badge&logo=jest&logoColor=white)
+
+<hr/>
+
+### Principais recursos:
+
+- Registro e login de usuários;
+- Exclusão de usuário e todas as informações registradas;
+- Registro, busca e deleção de credenciais;
+- Registro, busca e deleção de notas;
+- Registro, busca e deleção de cartões;
+
+Obs: O projeto ainda conta com testes automatizados e documentação descrevendo os recursos.
+
+<hr/>
+
+### Como utilizar:
+- Clone o repositório: git clone https://github.com/FellipeLimaT/drivenpass_nest.git
+- Digite o seguinte comando na raíz do projeto:
+
+  ```
+  npm i
+  ```
+- Crie um arquivo .env;
+- Crie um banco de dados no PostgreSQL;
+- O seu arquivo .env deverá ficar da seguinte forma:
+
+```
+DATABASE_URL=postgres://SEUUSUARIO:SUASENHA@localhost:5432/SEUBANCODEDADOS
+JWT_SECRET=CHAVE_SECRETA_EXEMPLO_#$1234abcd
+CRYPTR_SECRET=CHAVE_SECRETA_EXEMPLO_#$1234abcd
+```
+
+### Para executar o projeto:
+
+###### Desenvolvimento:
+
+```
+npm run start
+```
+
+###### Modo de visualização:
+```
+npm run start:dev
+```
+
+###### Modo de produção:
+```
+npm run start:prod
+```
+
+### Para testar o projeto:
+
+###### Testes e2e:
+
+```
+npm run test:e2e
+```
+
+###### Testes de cobertura:
+```
+npm run test:cov
+```
+
